@@ -1,0 +1,54 @@
+.App {
+  background-color: navy;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Additional styles for buttons and inputs */
+.App button {
+  background-color: #444;
+  color: white;
+  border: 1px solid #555;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.App button:hover {
+  background-color: #555;
+}
+
+.App input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.App input::placeholder {
+  color: #ccc;
+}
+
+/* Style for weather cards */
+.App div[style*="border: 1px solid #ccc"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Style for search results */
+.App div[style*="cursor: pointer"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #555;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.App div[style*="cursor: pointer"]:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
