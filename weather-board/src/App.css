@@ -1,54 +1,92 @@
 .App {
-  background-color: navy;
-  color: white;
   min-height: 100vh;
   padding: 20px;
   font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Additional styles for buttons and inputs */
-.App button {
-  background-color: #444;
-  color: white;
-  border: 1px solid #555;
+.App.app-light {
+  --background-color: #f5f8ff;
+  --text-color: #1e2a4a;
+  --button-bg: #007bff;
+  --button-color: white;
+  --button-border: #0957b0;
+  --input-bg: #ffffff;
+  --input-color: #1e2a4a;
+  --input-border: #cfd8e3;
+  --card-bg: #ffffff;
+  --card-border: #d7e0f2;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+.App.app-dark {
+  --background-color: #0d1b38;
+  --text-color: #f6f7fb;
+  --button-bg: #3b4f76;
+  --button-color: #ffffff;
+  --button-border: #2b3f63;
+  --input-bg: #182848;
+  --input-color: #f4f6fb;
+  --input-border: #2f4070;
+  --card-bg: #192e5c;
+  --card-border: #2f466f;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+.App {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.theme-switcher {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+.App button,
+.App .btn-secondary,
+.App .btn-primary,
+.App .btn-danger,
+.App .btn-home,
+.App .btn-back {
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: 1px solid var(--button-border);
   padding: 8px 16px;
   margin: 5px;
   cursor: pointer;
   border-radius: 4px;
 }
 
-.App button:hover {
-  background-color: #555;
+.App button:hover,
+.App .btn-secondary:hover,
+.App .btn-primary:hover,
+.App .btn-danger:hover,
+.App .btn-home:hover,
+.App .btn-back:hover {
+  opacity: 0.9;
 }
 
-.App input {
-  background-color: #333;
-  color: white;
-  border: 1px solid #555;
+.App input,
+.App .search-input {
+  background-color: var(--input-bg);
+  color: var(--input-color);
+  border: 1px solid var(--input-border);
   padding: 8px;
   border-radius: 4px;
 }
 
-.App input::placeholder {
-  color: #ccc;
+.App input::placeholder,
+.App .search-input::placeholder {
+  color: #aab2c4;
 }
 
-/* Style for weather cards */
-.App div[style*="border: 1px solid #ccc"] {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #555;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-/* Style for search results */
-.App div[style*="cursor: pointer"] {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #555;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.App div[style*="cursor: pointer"]:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.App .header,
+.App .cities-list,
+.App .city-detail-card,
+.App .result-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 10px var(--shadow-color);
 }

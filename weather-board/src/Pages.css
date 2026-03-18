@@ -18,10 +18,10 @@
 }
 
 .header {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 10px var(--shadow-color);
   margin-bottom: 30px;
 }
 
@@ -149,7 +149,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--card-bg);
   gap: 8px;
 }
 
@@ -183,10 +183,10 @@
 
 /* Cities List */
 .cities-list {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 .cities-list h2 {
@@ -249,10 +249,10 @@
 }
 
 .city-detail-card {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 .city-detail-card h1 {

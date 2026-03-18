@@ -54,20 +54,44 @@ function App() {
     setUnits(newUnits);
   };
 
+  // State for the color theme (light or dark), persisted in localStorage
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('weatherTheme');
+    return savedTheme || 'light';
+  });
+
+  // Effect to save theme to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('weatherTheme', theme);
+  }, [theme]);
+
+  // Function to toggle theme
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   // Function to clear all stored data and reset to defaults
   const handleClearData = () => {
     console.log('handleClearData called');
     localStorage.removeItem('weatherCities');
     localStorage.removeItem('weatherUnits');
+    localStorage.removeItem('weatherTheme');
     console.log('Local storage cleared, setting cities to:', DEFAULT_CITIES);
     setCities(DEFAULT_CITIES);
     setUnits('metric');
+    setTheme('light');
     console.log('Reset complete');
   };
 
   // Return the app with routing
   return (
-    <Router>
+    <div className={`App app-${theme}`}>
+      <div className="theme-switcher">
+        <button onClick={toggleTheme} className="btn-secondary">
+          Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+        </button>
+      </div>
+      <Router>
       <Routes>
         <Route 
           path="/" 
@@ -95,6 +119,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
+    </div>
   );
 }
 
