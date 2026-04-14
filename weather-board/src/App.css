@@ -1,92 +1,157 @@
 .App {
   min-height: 100vh;
   padding: 20px;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  transition: background 0.4s ease, color 0.3s ease;
 }
 
+/* ── Light Mode ── */
 .App.app-light {
-  --background-color: #f5f8ff;
-  --text-color: #1e2a4a;
-  --button-bg: #007bff;
-  --button-color: white;
-  --button-border: #0957b0;
-  --input-bg: #ffffff;
-  --input-color: #1e2a4a;
-  --input-border: #cfd8e3;
-  --card-bg: #ffffff;
-  --card-border: #d7e0f2;
-  --shadow-color: rgba(0, 0, 0, 0.08);
-}
-
-.App.app-dark {
-  --background-color: #0d1b38;
-  --text-color: #f6f7fb;
-  --button-bg: #3b4f76;
+  --bg-gradient: linear-gradient(145deg, #74b9ff 0%, #a29bfe 100%);
+  --text-primary: #1a2332;
+  --text-secondary: #4a5568;
+  --text-muted: #6b7a99;
+  --accent: #4f46e5;
+  --accent-hover: #3730a3;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --success: #10b981;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-hover: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+  --input-bg: rgba(255, 255, 255, 0.85);
+  --input-border: rgba(79, 70, 229, 0.25);
+  --input-color: #1a2332;
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-border: rgba(255, 255, 255, 0.5);
+  --shadow-color: rgba(31, 38, 135, 0.18);
+  --button-bg: #4f46e5;
   --button-color: #ffffff;
-  --button-border: #2b3f63;
-  --input-bg: #182848;
-  --input-color: #f4f6fb;
-  --input-border: #2f4070;
-  --card-bg: #192e5c;
-  --card-border: #2f466f;
-  --shadow-color: rgba(0, 0, 0, 0.2);
+  --button-border: #3730a3;
 }
 
+/* ── Dark Mode ── */
+.App.app-dark {
+  --bg-gradient: linear-gradient(145deg, #0d1b38 0%, #1e1b4b 50%, #0f172a 100%);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+  --success: #34d399;
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-bg-hover: rgba(15, 23, 42, 0.75);
+  --glass-border: rgba(129, 140, 248, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --input-bg: rgba(15, 23, 42, 0.8);
+  --input-border: rgba(129, 140, 248, 0.25);
+  --input-color: #f1f5f9;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --card-border: rgba(129, 140, 248, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --button-bg: #4f46e5;
+  --button-color: #ffffff;
+  --button-border: #3730a3;
+}
+
+/* ── Background ── */
 .App {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background: var(--bg-gradient);
+  color: var(--text-primary);
 }
 
+/* ── Theme Toggle ── */
 .theme-switcher {
   display: flex;
   justify-content: flex-end;
-  margin: 10px 0;
+  margin-bottom: 12px;
 }
 
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--glass-shadow);
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+}
+
+.theme-btn:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-1px);
+}
+
+/* ── Shared Button Base ── */
 .App button,
 .App .btn-secondary,
 .App .btn-primary,
 .App .btn-danger,
 .App .btn-home,
 .App .btn-back {
-  background-color: var(--button-bg);
-  color: var(--button-color);
-  border: 1px solid var(--button-border);
-  padding: 8px 16px;
-  margin: 5px;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  font-weight: 500;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  border: none;
 }
 
-.App button:hover,
-.App .btn-secondary:hover,
-.App .btn-primary:hover,
-.App .btn-danger:hover,
-.App .btn-home:hover,
-.App .btn-back:hover {
-  opacity: 0.9;
-}
-
+/* ── Input ── */
 .App input,
 .App .search-input {
-  background-color: var(--input-bg);
+  background: var(--input-bg);
   color: var(--input-color);
   border: 1px solid var(--input-border);
-  padding: 8px;
-  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.App input:focus,
+.App .search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 .App input::placeholder,
 .App .search-input::placeholder {
-  color: #aab2c4;
+  color: var(--text-muted);
 }
 
+/* ── Cards (glassmorphism) ── */
 .App .header,
 .App .cities-list,
-.App .city-detail-card,
+.App .city-detail-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--glass-shadow);
+}
+
 .App .result-item {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 2px 10px var(--shadow-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
